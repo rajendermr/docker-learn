@@ -22,7 +22,6 @@ jobs:
         env:
           APP_VERSION : ${{ github.event.inputs.version }}
 
-
       - run: "echo hello ${{ github.sha }}"
       - run: "echo hello ${{ env.APP_VERSION }}"
     
