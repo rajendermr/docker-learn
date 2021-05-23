@@ -10,11 +10,20 @@ on:
         description: "Please provide image version"
         required: false
         default: '1.1'
+env:
+  APP_VERSION : ${{ github.sha }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name : set APP_VERSION
+        if: ${{ github.event.inputs.version != '' }}
+        env:
+          APP_VERSION : ${{ github.event.inputs.version }}
 
-    - run: "echo hello ${{ github.sha }}"
+
+      - run: "echo hello ${{ github.sha }}"
+      - run: "echo hello ${{ env.APP_VERSION }}"
+    
 
