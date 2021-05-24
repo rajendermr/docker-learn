@@ -25,7 +25,4 @@ jobs:
           echo "VER=${VER}" >> $GITHUB_ENV
 
       - run: "echo hello ${{ github.sha }}"
-      - run: "echo hello ${VER}"
-      - run: echo hello :${{VER}}
-    
-
+      - run: echo hello :${VER}
