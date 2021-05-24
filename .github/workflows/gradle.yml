@@ -26,5 +26,6 @@ jobs:
 
       - run: "echo hello ${{ github.sha }}"
       - run: "echo hello ${VER}"
+      - run: echo hello :${{VER}}
     
 
