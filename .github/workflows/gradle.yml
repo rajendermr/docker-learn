@@ -20,9 +20,13 @@ jobs:
       - name : set APP_VERSION
         if: ${{ github.event.inputs.version != '' }}
         run: |
-          ${{ env.APP_VERSION }}=${{ github.event.inputs.version }}
+          VER=${{ github.event.inputs.version }}
+      - name : set APP_VERSION1
+        if: ${{ github.event.inputs.version == '' }}
+        run: |
+          VER={{ env.APP_VERSION }}
 
       - run: "echo hello ${{ github.sha }}"
-      - run: "echo hello ${{ env.APP_VERSION }}"
+      - run: "echo hello $VER"
     
 
